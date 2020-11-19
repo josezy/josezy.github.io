@@ -45,10 +45,7 @@ echo "${blue}[+] Saving pages as static HTML to output/...$normal"
 
 echo ""
 echo "${blue}[+] Including stevie king to docs/...$normal"
-cd stevie-king/
-npm install -f
-npm run build:dist
-rsync -avh dist/ ../docs/publishing/
+rsync -avh stevie-king/dist/ docs/publishing/
 
 kill %1 > /dev/null
 echo ""
