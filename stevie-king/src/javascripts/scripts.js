@@ -9,9 +9,13 @@ import {
   from './git';
 import { jsonPostSchema } from './postSchema';
 
-const CONTENTS_JSON = 'https://raw.githubusercontent.com/Monadical-SAS/monadical.com/master/content.json';
-const REPO_ORGANIZATION = 'Monadical-SAS';
-const REPO_NAME = 'monadical.com';
+// Don't forget to update this to Monadical's repo !!!
+const REPO_ORGANIZATION = 'josezy';
+const REPO_NAME = 'josezy.github.io';
+
+// const REPO_ORGANIZATION = 'Monadical-SAS';
+// const REPO_NAME = 'monadical.com';
+const CONTENTS_JSON = `https://raw.githubusercontent.com/${REPO_ORGANIZATION}/${REPO_NAME}/master/content.json`;
 const STEVIE_COMMIT_MESSAGE = 'Stevie King\'s commit';
 
 const { $ } = window;
@@ -67,11 +71,6 @@ const publishPost = async (octo, postSlug, postData, imgData, imgExtension) => {
   $('#form-errors').addClass('d-none');
   $('#form-success').removeClass('d-none');
 };
-
-// const requestContentJSON = async () => {
-//   const response = await fetch('https://raw.githubusercontent.com/Monadical-SAS/monadical.com/master/content.json');
-//   const json = await response.json();
-// };
 
 $(document).ready(() => {
   const element = document.getElementById('editor_holder');
@@ -135,9 +134,6 @@ $(document).ready(() => {
     dictDefaultMessage: '<b><h5> <i class="fas fa-image fa-2x"></i><br><br> Click here to select <br> or <br> Drop the post image</h5></b>',
     maxFilesize: 2, // MB
     accept(file, done) {
-      // reader.onload = function (e) {
-      //   console.log(reader.result, e);
-      // };
       imgExtension = file.name.split('.').pop();
       reader.readAsDataURL(file);
       done();
