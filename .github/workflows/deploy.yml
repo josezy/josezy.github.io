@@ -32,6 +32,8 @@ jobs:
         run: |
           cd stevie-king/
           npm install -f
+          npm uninstall expo-cli -g
+          npm install expo-cli -g
           npm run build:dist
       - name: Create local changes
         if: env.SKIP_STEP == '0'
