@@ -19,22 +19,10 @@ jobs:
         with:
           python-version: 3.7
           architecture: x64
-      - name: Set up Nodejs
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
       - name: Detect last autodeployment
         run: |
           LAST_AUTODEPLOYED=$(git log --oneline -n 1 HEAD | grep -q "Autodeployed by git hub actions" && echo "1" || echo "0")
           echo "SKIP_STEP=$LAST_AUTODEPLOYED" >> $GITHUB_ENV
-      - name: Build stevie-king
-        if: env.SKIP_STEP == '0'
-        run: |
-          cd stevie-king/
-          npm install -f
-          npm uninstall expo-cli -g
-          npm install expo-cli -g
-          npm run build:dist
       - name: Create local changes
         if: env.SKIP_STEP == '0'
         run: |
