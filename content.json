@@ -3,49 +3,9 @@
   "SITE_DOMAIN": "monadical.com",
   "PAGES": {
     "index": {
-      "title": "Home",
-      "url": "/index.html",
-      "template": "index.html"
-    },
-    "about": {
-      "title": "About",
-      "url": "/about.html",
-      "template": "about.html"
-    },
-    "blog": {
       "title": "Blog",
-      "url": "/blog.html",
+      "url": "/index.html",
       "template": "blog.html"
-    },
-    "team": {
-      "title": "Team",
-      "url": "/team.html",
-      "template": "team.html"
-    },
-    "sales": {
-      "title": "Sales",
-      "url": "/sales.html",
-      "template": "sales.html"
-    },
-    "services": {
-      "title": "Services",
-      "url": "/services.html",
-      "template": "services.html"
-    },
-    "projects": {
-      "title": "Projects",
-      "url": "/projects.html",
-      "template": "projects.html"
-    },
-    "contact": {
-      "title": "Contact us",
-      "url": "/contact-us.html",
-      "template": "contact-us.html"
-    },
-    "principles": {
-      "title": "Principles",
-      "url": "/principles.html",
-      "template": "posts/principles-handbook.html"
     }
   },
   "POSTS": {
@@ -893,27 +853,7 @@
     }
   },
   "CASES": {
-    "index": {
-      "title": "Kiwix",
-      "url": "/projects/kiwix.html",
-      "template": "projects/kiwix.html"
-    },
-    "syncroplicity": {
-      "title": "syncroplicity",
-      "url": "/projects/syncroplicity.html",
-      "template": "projects/syncroplicity.html"
-    },
-    "oddsligers": {
-      "title": "oddsligers",
-      "url": "/projects/oddsligers.html",
-      "template": "projects/oddsligers.html"
-    }
   },
   "HeaderLinks": [
-    "services",
-    "principles",
-    "projects",
-    "team",
-    "blog"
-   ]
+  ]
 }
