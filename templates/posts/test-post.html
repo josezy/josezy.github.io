@@ -10,11 +10,11 @@
     <meta name="mobile-web-app-capable" content="yes">
     
     
-    <meta name="description" content="&lt;center&gt;  # The Anatomy of HTML, CSS, and JS  *Originally published 2019-01-29 on [docs.sweeting.me]">
+    <meta name="description" content=" # SpikeInterface:&lt;br&gt; graphical pipeline designer  ## Context  [SpikeInterface](https://github.com/">
     
     
     
-    <meta property="og:title" content="The Anatomy of HTML, CSS, and JS - CodiMD">
+    <meta property="og:title" content="SpikeInterface: graphical pipeline designer - CodiMD">
     
     
     
@@ -25,7 +25,7 @@
     <meta property="og:image:type" content="image/png">
     
     <base href="">
-    <title>The Anatomy of HTML, CSS, and JS - CodiMD</title>
+    <title>SpikeInterface: graphical pipeline designer - CodiMD</title>
     <link rel="icon" type="image/png" href="https://docs.monadical.com/favicon.png">
     <link rel="apple-touch-icon" href="https://docs.monadical.com/apple-touch-icon.png">
   
@@ -50,164 +50,85 @@
         <small>
             <span>
                 
-                    <span class="ui-lastchangeuser">&thinsp;<i class="ui-user-icon small" style="background-image: url(https://cdn.libravatar.org/avatar/aa8b1ebe25440bd38748639eebdc6eaf?s=96);" data-toggle="tooltip" data-placement="right" title="nick"></i></span>
+                    <span class="ui-lastchangeuser">&thinsp;<i class="ui-user-icon small" style="background-image: url(https://cdn.libravatar.org/avatar/bd996ca3d6f681cbd3a036c679873b56?s=96);" data-toggle="tooltip" data-placement="right" title="jose.zdy"></i></span>
                 
                 &nbsp;<span class="text-uppercase ui-status-lastchange"></span>
-                <span class="ui-lastchange text-uppercase" data-createtime="Thu Feb 14 2019 00:02:12 GMT+0000 (Coordinated Universal Time)" data-updatetime="Wed Dec 11 2019 23:18:52 GMT+0000 (Coordinated Universal Time)"></span>
+                <span class="ui-lastchange text-uppercase" data-createtime="Fri Oct 02 2020 04:15:57 GMT+0000 (Coordinated Universal Time)" data-updatetime="Thu Oct 08 2020 21:15:49 GMT+0000 (Coordinated Universal Time)"></span>
             </span>
-            <span class="pull-right">3347 views <a href="https://docs.monadical.com/#" class="ui-edit" title="Edit this note"><i class="fa fa-fw fa-pencil"></i></a></span>
+            <span class="pull-right">2 views <a href="https://docs.monadical.com/#" class="ui-edit" title="Edit this note"><i class="fa fa-fw fa-pencil"></i></a></span>
             <br>
             
         </small>
     </div>
-    <div id="doc" class="container markdown-body">&lt;center&gt;
+    <div id="doc" class="container markdown-body">
+# SpikeInterface:&lt;br&gt; graphical pipeline designer
 
-# The Anatomy of HTML, CSS, and JS
+## Context
 
-*Originally published 2019-01-29 on [docs.sweeting.me](https://docs.sweeting.me/s/blog).*
+[SpikeInterface](https://github.com/SpikeInterface/spikeinterface) is a Python framework designed to unify preexisting spike sorting technologies into a single code base. It is a piece of software mostly used among academic neuroscience labs.
 
-&lt;/center&gt;
+There also exists [spikely](https://github.com/SpikeInterface/spikely), which is a graphic UI built with [PyQT](https://en.wikipedia.org/wiki/PyQt) and it wraps around SpikeInterface so SpikeInterface library can be used without writing a single line of code.
 
-[TOC]
+![](https://docs.monadical.com/uploads/upload_c8439e9b37ddb18452709c8cf457ed34.png)
 
-## Anatomy of HTML
+This window provides a way to design a pipeline of SpikeInterface elements that needs to be run as jobs.
 
-![](https://clearlydecoded.com/assets/images/posts/2017-09-04-anatomy-of-html-tag/html-tag-attributes.png)
+## Issue
 
-An HTML document is a tree of HTML **elements** in a hierarchy.  An HTML code file is made up of **tags** with content inside of them, which together describe the layout of the final rendered page the user sees in their browser.
-```html
-&lt;tag-name attribute-name=&#34;attribute-value1 attribute-value2 ...&#34; ...&gt;
-    tag content
-    ...
-&lt;/tag-name&gt;
-...
-```
+spikely interface works good but looks tough and doesn&#39;t represent a clear workflow/pipeline, so creating a better graphical interface is required.
 
-### HTML Elements
+Suggestion is to use [React](https://reactjs.org/)  and [react-digraph](https://github.com/uber/react-digraph) (or similar) along with [Django](https://www.djangoproject.com/) and [airflow](https://airflow.apache.org/) (or similar python job scheduler) to build a webapp that offers a better graphical interface to design workflows, run and manage jobs.
 
-&#34;**Element**&#34;&#34; is generally used to decribe one rendered component of a page, for example a picture, a shaded rectangle, or a paragraph of text. A **tag** refers to the code used to generate that element.  The distinction is not super important, but it&#39;s handy to keep in mind that **elements** are things you see in the browser, and **tags** are things you see in your code editor that become the things in the browser when viewed.
+Like this one:
+![](https://docs.monadical.com/uploads/upload_41be742479a2397ac3ae5cd6b7697552.gif)
 
 
-### HTML Tags
+or this one:
+![](https://docs.monadical.com/uploads/upload_37c2cacf1d3faaa2a0f49a2c3b57b5ca.png)
 
-An HTML **tag** is written in HTML syntax using three parts:
+## Proposal
 
-e.g. `&lt;div&gt;...children...&lt;/div&gt;`
+Goal is to improve the user experience on pipeline designing, steps to accomplish that can be summarized like:
 
-1. the **opening tag** = `&lt;div&gt;`
-2. the **`...children...`** = can contain more child tags, or text, etc.
-3.  the **closing tag** = `&lt;/div&gt;`
+1. Abstract/couple SpikeInterface [elements](https://spikeinterface.readthedocs.io/en/latest/api.html) with a DAG (directional acyclic graph) pipeline framework and be able to run sample pipelines. *Note: providing an example is helpful* **~3-4 weeks**
+    * Create script for running pipelines using preferred structure to save it
+3. Create Django project, react page and pipeline designing view, including: list of nodes, way to draw and connect them, parameter setting panel **~3-4 weeks**
+4. Connect point 1 and 2 to programmatically construct pipelines with webapp and execute them with DAG+SpikeInterface **~7 weeks**
+    * Connect ui to previous Abstraction (not running yet) (2 weeks)
+    * Add react-graph, constructing pipelines, saving params and saving fine pipeline data file (3 weeks)
+    * Connect Ui to backend pipeline processing to complete tasks (2 weeks)
 
-*Some examples of tags:*
+ETA: ~7-10 weeks
 
-`&lt;html&gt;...&lt;/html&gt;`, `&lt;body&gt;...&lt;/body&gt;`, `&lt;div&gt;...&lt;/div&gt;`, `&lt;span&gt;...&lt;/span&gt;`
+*For further work:*
+* a job viewer/manager can be developed to gain more control over running pipeline
+* ability to save/load pipelines
+* Use docker to containerize project 
 
-#### Self Closing tags
-
-Some tags are called **self-closing tags**, these tags do not need a closing tag because they don&#39;t have any child content.
-
-*Some examples of self-closing tags:*
-
-``&lt;img src=&#34;example.jpg&#34;/&gt;``, or `&lt;br/&gt;` for linebreak, and `&lt;hr/&gt;` for &#34;horizontal line&#34;, etc.
-
-You can usually distinguish self-closing tags by checking for the `/` at the end, like`&lt;tag-name/&gt;`, though some people don&#39;t follow this convention so it&#39;s not a 100% rule.
-
----
-
-## Anatomy of CSS
-
-![](https://learnwebcode.com/wp-content/uploads/2010/02/anatomy-of-a-css-rule.gif)
-
-### CSS Rules
-
-CSS consists of **rules**. A CSS **rule** is made up of a **selector** and a list of **styles** aka **properties** to apply to the elements that the selector matches.
-
-```css
-tagname {
-    property-name: property value;
-    ...
-}
-
-.class-name {
-    ...
-}
-```
-
-#### CSS Selectors
-
-Examples of some CSS selectors:
-
- - select all the elements with a certain tag name, e.g. `h1`, `body`, or `div`:
-    `h1 { ... }`, `body { ... }`, `div { ... }`
-    
- - select all the elements with a certain class name, e.g. `featured-image`:
-    `.featured-image { ... }`
-
-The **selector** specifically refers to the `[h1]` part of the rule.  Selectors &#34;select&#34; which elements you want to style, and you can create more complex selectors that use multiple class names and tag names to find specific elements on the page and apply some styles;
-
-e.g. This selector will match all `&lt;small&gt;` elements that are inside of an `h1` tag that has the `header-text` class on it.
-```css
-h1.header-text small {
-    font-size: 14px;
-}
-```
-Which would match the inner `&lt;small&gt;` element here, and the &#34;Some subtext&#34; inside would be displayed with a `14px` font size.
-```html
-&lt;h1 class=&#34;header-text&#34;&gt;
-    Some header text...&lt;br/&gt;
-    &lt;small&gt;Some subtext&lt;/small&gt;
-&lt;/h1&gt;
-```
-
-
-#### CSS Properties
-
-Once you&#39;ve selected some elements to style, you can apply **properties** that describe which styles you want to change.
-
-E.g. if we wanted to make out entire document use a specific font, we could do:
-
-```css
-body {
-    font-family: Helvetica sans-serif;
-}
-```
-
-##### CSS Property Names
-
-In this example `font-family` is the **property name**, and `Helvetica sans-serif` is the **property value**.
-
-Some examples of **property names**:
-`font-size`, `width`, `display`, `white-space`, `opacity`, `text-align`
-
-##### CSS Property Values
-
-Some examples of **property values:**:
-`20px`, `30vw`, `1.5em`, `10%`, `200`, `&#39;Gill Sans&#39; Helvetica sans-serif`
-
-You&#39;ll notice that these property values can have different **units**.
-
-##### CSS Property Units
-
-Here are some examples of acceptable **CSS units**:
-
- - `px`: pixels
- - `%`: percentage of parent&#39;s value
- - `vw`: percentage of entire screen&#39;s width (`100vw` = `100%` of screen width)
- - `vh`: percentage of entire screen&#39;s height
- - `cm`: centimeters
- - `in`: inches
- - `em`: scale factor of inherited default font size (`1.1em` = 1.1x default font size, e.g. `1.1em` when the default is `14px` would be `15.4px`)
- - no unit: not all css values need units, e.g. `font-weight` or `opacity` can be `400` or `0.1` respectively
+### Concerns and time delayers
+* Understanding SpikeInterface elements, associated parameters (do they all have defaults?) and time/resource consuming tasks
 
 
 ---
+---
+---
 
-## Further Resources
+## Research
 
-This is a fantastic, in-depth guide to learn the whole process of web development:
-https://btholt.github.io/intro-to-web-dev-v2/
+A python pipeline/workflow library allows the user to run tasks in different ways which includes single sequential lines, trees, diamonds and decision forks.
+Python pipeline libraries/frameworks:
 
----</div>
+* [Apache Airflow](https://github.com/apache/airflow): Robust enough, GUI included, complex structure.
+* [Couler](https://github.com/couler-proj/couler): Made to be simpler than airflow, requires Argo
+* [Mara pipelines](https://github.com/mara/mara-pipelines): Looks understandable, requires Postgres
+* [Bonobo](https://github.com/python-bonobo/bonobo): ETL python framework, easy syntax, Django commands compatible
+* [Jug](https://github.com/luispedro/jug): Simple, maybe not enough, still worth the review
+* [Metaflow](https://github.com/Netflix/metaflow): Powered by Netflix, looks powerful
+* [pypyr](https://pypyr.io/): Uses .yaml files to define the pipeline
+* [dagster](https://dagster.io/): Pipelines written in python, complex and robust
+* [ploomber](https://github.com/ploomber/ploomber): Based on modular scripts, looks useful
+
+</div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
             <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="https://docs.monadical.com/#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">

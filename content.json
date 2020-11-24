@@ -9,6 +9,27 @@
     }
   },
   "POSTS": {
+    "test-post": {
+      "title": "Test Stansalone blog post",
+      "description": "Test Stansalone blog post",
+      "date": "2020-11-22",
+      "img": "/static/test-post.jpg",
+      "tags": [
+        "test",
+        "post"
+      ],
+      "length": "10 min read",
+      "source": "https://docs.monadical.com/s/spike-airflow",
+      "url": "/posts/test-post.html",
+      "template": "posts/test-post.html",
+      "author": {
+        "name": "jose",
+        "title": "kingslayer",
+        "handle": "@josezy",
+        "url": "",
+        "image": "/static/jose.jpg"
+      }
+    },
     "set-up-ci-workflow-part-two": {
       "title": "How to Set Up a CI/CD Workflow, Part Two",
       "description": "In a previous article, I explained how to set up a pipeline to send images from GitHub to AWS ECR. In this article, I will focus on implementing the missing steps required for a fully functional CD pipeline.",
@@ -852,8 +873,6 @@
       "icon": "github"
     }
   },
-  "CASES": {
-  },
-  "HeaderLinks": [
-  ]
+  "CASES": {},
+  "HeaderLinks": []
 }
