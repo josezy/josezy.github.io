@@ -46,7 +46,7 @@ jobs:
 
   md_to_html:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.author, 'HackMD')"
+    if: "contains(github.event.head_commit.author.name, 'HackMD')"
     steps:
       - uses: actions/checkout@v2
         with:
