@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monadical Consulting | How to set up a CI workflow</title>
+    <title>Stevie Blog | How to set up a CI workflow</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/static/bootstrap4-pleasant.min.css">
     <link rel="stylesheet" href="/static/core/css/base.css">
 
-    <link rel="canonical" href="https://monadical.com/posts/set-up-ci-workflow.html" />
+    <link rel="canonical" href="https://stevie-blog.com/posts/set-up-ci-workflow.html" />
 
     <link rel="apple-touch-icon" sizes="76x76" href="/static/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
@@ -32,11 +32,11 @@
 <!-- Required Open Graph data -->
 <meta property="og:title" content="How to set up a CI workflow" />
 <meta property="og:type" content="article" />
-<meta property="og:image" content="https://monadical.com/static/set-up-ci-workflow.png" />
-<meta property="og:url" content="https://monadical.com/posts/set-up-ci-workflow.html" />
+<meta property="og:image" content="https://stevie-blog.com/static/set-up-ci-workflow.png" />
+<meta property="og:url" content="https://stevie-blog.com/posts/set-up-ci-workflow.html" />
 <!-- Optional Open Graph data -->
 <meta property="og:description" content="How to set up a basic CI workflow using GitHub and AWS, relying completely on managed services so you don’t increase your maintenance burden." />
-<meta property="og:site_name" content="Monadical Consulting" />
+<meta property="og:site_name" content="Stevie Blog" />
 <meta property="og:locale" content="en_US" />
 <!-- Find additional markup on https://ogp.me -->
 <!-- Twitter Card data -->
@@ -44,7 +44,7 @@
 <meta name="twitter:site" content="@MonadicalSAS">
 <meta name="twitter:title" content="How to set up a CI workflow">
 <meta name="twitter:description" content="How to set up a basic CI workflow using GitHub and AWS, relying completely on managed services so you don’t increase your maintenance burden.">
-<meta name="twitter:image" content="https://monadical.com/static/set-up-ci-workflow.png">
+<meta name="twitter:image" content="https://stevie-blog.com/static/set-up-ci-workflow.png">
 
 </head>
 
@@ -191,7 +191,7 @@
                 &nbsp;<span class="text-uppercase ui-status-lastchange"></span>
                 <span class="ui-lastchange text-uppercase" data-createtime="Tue Sep 08 2020 11:53:09 GMT+0000 (Coordinated Universal Time)" data-updatetime="Tue Nov 03 2020 13:31:52 GMT+0000 (Coordinated Universal Time)"></span>
             </span>
-            <span class="pull-right">745 views <a href="https://docs.monadical.com/#" class="ui-edit" title="Edit this note"><i class="fa fa-fw fa-pencil"></i></a></span>
+            <span class="pull-right">755 views <a href="https://docs.monadical.com/#" class="ui-edit" title="Edit this note"><i class="fa fa-fw fa-pencil"></i></a></span>
             <br>
             
             <span class="ui-owner">
@@ -484,7 +484,7 @@ The first thing you will want to confirm is that the user can log in to AWS ECR.
 
 ```yaml
       - name: Configure AWS credentials
-        uses: aws-actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a4c7cbcac2cdc3d1d6c189c5d3d789c7d6c1c0c1cad0cdc5c8d7e4d295">[email&#160;protected]</a>
+        uses: aws-actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="31525e5f5758564443541c5046421c52435455545f4558505d42714700">[email&#160;protected]</a>
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -492,7 +492,7 @@ The first thing you will want to confirm is that the user can log in to AWS ECR.
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98f9f5f9e2f7f6b5fdfbeab5f4f7fff1f6d8eea9">[email&#160;protected]</a>
+        uses: aws-actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed8c808c978283c0888e9fc081828a8483ad9bdc">[email&#160;protected]</a>
 ```
 
 Replace &lt;aws-region&gt; with the region where you created the ECR repository. In my case it was done on **us-west-2**. The current file looks like this:
@@ -519,10 +519,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b6d5ded3d5ddd9c3c2f6c084">[email&#160;protected]</a>
+        uses: actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dbb8b3beb8b0b4aeaf9bade9">[email&#160;protected]</a>
 
       - name: Configure AWS credentials
-        uses: aws-actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70131f1e1619170502155d1107035d13021514151e0419111c03300641">[email&#160;protected]</a>
+        uses: aws-actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a3c0cccdc5cac4d6d1c68ec2d4d08ec0d1c6c7c6cdd7cac2cfd0e3d592">[email&#160;protected]</a>
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -530,7 +530,7 @@ jobs:
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ff9e929e859091d29a9c8dd29390989691bf89ce">[email&#160;protected]</a>
+        uses: aws-actions/<a href="https://docs.monadical.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="60010d011a0f0e4d0503124d0c0f07090e201651">[email&#160;protected]</a>
 
       - name: Build, tag, and push image to amazon ECR
         env:
@@ -735,6 +735,10 @@ Monadical.com | Full-Stack Consultancy
                 <br/><br/>
                 
                     
+                        <li><a href="/posts/md-test-post.html">Test Markdown blog post</a></li>
+                    
+                
+                    
                         <li><a href="/posts/test-post.html">Test Stansalone blog post</a></li>
                     
                 
@@ -746,8 +750,6 @@ Monadical.com | Full-Stack Consultancy
                         <li><a href="/posts/jwt-login-firebase.html">A Cheat Sheet for Using your JWT Authentication with Django </a></li>
                     
                 
-                    
-                        <li><a href="/posts/covid-affects-outsourcing.html">How COVID-19 will affect outsourcing trends</a></li>
                     
                 
                     
