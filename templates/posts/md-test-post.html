@@ -75,80 +75,125 @@
                 </h3>
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
-                <h1>
-<a id="user-content-spikeinterface-graphical-pipeline-designer" class="anchor" href="#spikeinterface-graphical-pipeline-designer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SpikeInterface:<br> graphical pipeline designer</h1>
+                <hr>
 <h2>
-<a id="user-content-context" class="anchor" href="#context" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Context</h2>
-<p><a href="https://github.com/SpikeInterface/spikeinterface">SpikeInterface</a> is a Python framework designed to unify preexisting spike sorting technologies into a single code base. It is a piece of software mostly used among academic neuroscience labs.</p>
-<p>There also exists <a href="https://github.com/SpikeInterface/spikely">spikely</a>, which is a graphic UI built with <a href="https://en.wikipedia.org/wiki/PyQt" rel="nofollow">PyQT</a> and it wraps around SpikeInterface so SpikeInterface library can be used without writing a single line of code.</p>
-<p><a href="https://camo.githubusercontent.com/3a9ec317f726fe0c88462318cee016705b3eba188c6f939c2a95231fd3e11d5d/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f63383433396539623337646462313834353237303963386366343537656433342e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/3a9ec317f726fe0c88462318cee016705b3eba188c6f939c2a95231fd3e11d5d/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f63383433396539623337646462313834353237303963386366343537656433342e706e67" alt="" data-canonical-src="https://docs.monadical.com/uploads/upload_c8439e9b37ddb18452709c8cf457ed34.png" style="max-width:100%;"></a></p>
-<p>This window provides a way to design a pipeline of SpikeInterface elements that needs to be run as jobs.</p>
+<a id="user-content-title-how-to-create-your-own-terrain-surface-modeldescription-an-introduction-to-drone-mapping-how-to-create-a-terrain-surface-model-using-a-mobile-app-your-computer-or-cloud-service-and-your-own-dronetags-drones-drone-mapping-missions-modelling-photogrammetry" class="anchor" href="#title-how-to-create-your-own-terrain-surface-modeldescription-an-introduction-to-drone-mapping-how-to-create-a-terrain-surface-model-using-a-mobile-app-your-computer-or-cloud-service-and-your-own-dronetags-drones-drone-mapping-missions-modelling-photogrammetry" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>title: How to Create Your Own Terrain Surface Model
+description: An introduction to drone mapping. How to create a terrain surface model using a mobile app, your computer or cloud service, and your own drone.
+tags: drones, drone-mapping, missions, modelling, photogrammetry</h2>
+
+<h1>
+<a id="user-content-drone-mappinghow-to-create-your-own-terrain-surface-model" class="anchor" href="#drone-mappinghow-to-create-your-own-terrain-surface-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Drone Mapping:<br>How to Create Your Own Terrain Surface Model</h1>
+<p><em>Written by Jose Benitez.
+Originally published 2020-09-22 on the <a href="https://monadical.com/blog.html" rel="nofollow">Monadical blog</a>.</em></p>
+
+<hr>
+<p>I first started learning about drones four years ago, at the University of Antioquia (Medellín). My interest soon grew into an obsession, and I spent a lot of my free time building them and flying them around campus, racing friends. Before long I was saving up for one of those cool flying 4k cameras so that I could get a drone’s eye view of things. I love that drones extend our vision of the world and allow us to see, sense and feel the environment at a new level of awesomeness. This hobby evolved into an interest in developing software for autonomous applications and custom drone solutions.</p>
+<p>With this post, I want to give you an idea of what drone mapping is and why it’s useful, and show how you can have a go at doing some yourself with your own drone. I’ve included the details of one of my flights and some of the results I’ve been able to achieve.</p>
+
+<p><a href="https://camo.githubusercontent.com/758412d9f9a4daf4c3bcecde99738eb5d46f5f1b0091edcaccc563bd6c09061b/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f31373530336464623231313134333965386564356337656135616434353964372e6a7067" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/758412d9f9a4daf4c3bcecde99738eb5d46f5f1b0091edcaccc563bd6c09061b/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f31373530336464623231313134333965386564356337656135616434353964372e6a7067" alt="vector-image" data-canonical-src="https://docs.monadical.com/uploads/upload_17503ddb2111439e8ed5c7ea5ad459d7.jpg" style="max-width:100%;"></a></p>
+
+<br>
+<p>So let’s take off! But first...</p>
 <h2>
-<a id="user-content-issue" class="anchor" href="#issue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Issue</h2>
-<p>spikely interface works good but looks tough and doesn't represent a clear workflow/pipeline, so creating a better graphical interface is required.</p>
-<p>Suggestion is to use <a href="https://reactjs.org/" rel="nofollow">React</a>  and <a href="https://github.com/uber/react-digraph">react-digraph</a> (or similar) along with <a href="https://www.djangoproject.com/" rel="nofollow">Django</a> and <a href="https://airflow.apache.org/" rel="nofollow">airflow</a> (or similar python job scheduler) to build a webapp that offers a better graphical interface to design workflows, run and manage jobs.</p>
-<p>Like this one:
-<a href="https://camo.githubusercontent.com/ffecb693d5a8246f50aa95736702e4961df7a8eb331098808318d2c727222116/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f34316265373432343739613233393761633361653563643662373639373535322e676966" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/ffecb693d5a8246f50aa95736702e4961df7a8eb331098808318d2c727222116/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f34316265373432343739613233393761633361653563643662373639373535322e676966" alt="" data-canonical-src="https://docs.monadical.com/uploads/upload_41be742479a2397ac3ae5cd6b7697552.gif" style="max-width:100%;"></a></p>
-<p>or this one:
-<a href="https://camo.githubusercontent.com/4ea6ef5ec993f8b650ab8648598864e8b1cb78e799acad7594ad08bece75feab/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f33376332636163663164336661616132613066343961326333623537623563612e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/4ea6ef5ec993f8b650ab8648598864e8b1cb78e799acad7594ad08bece75feab/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f33376332636163663164336661616132613066343961326333623537623563612e706e67" alt="" data-canonical-src="https://docs.monadical.com/uploads/upload_37c2cacf1d3faaa2a0f49a2c3b57b5ca.png" style="max-width:100%;"></a></p>
-<h2>
-<a id="user-content-proposal" class="anchor" href="#proposal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proposal</h2>
-<p>Goal is to improve the user experience on pipeline designing, steps to accomplish that can be summarized like:</p>
-<ol>
-<li>Abstract/couple SpikeInterface <a href="https://spikeinterface.readthedocs.io/en/latest/api.html" rel="nofollow">elements</a> with a DAG (directional acyclic graph) pipeline framework and be able to run sample pipelines. <em>Note: providing an example is helpful</em> <strong>~3-4 weeks</strong>
-<ul>
-<li>Create script for running pipelines using preferred structure to save it</li>
-</ul>
-</li>
-<li>Create Django project, react page and pipeline designing view, including: list of nodes, way to draw and connect them, parameter setting panel <strong>~3-4 weeks</strong>
-</li>
-<li>Connect point 1 and 2 to programmatically construct pipelines with webapp and execute them with DAG+SpikeInterface <strong>~7 weeks</strong>
-<ul>
-<li>Connect ui to previous Abstraction (not running yet) (2 weeks)</li>
-<li>Add react-graph, constructing pipelines, saving params and saving fine pipeline data file (3 weeks)</li>
-<li>Connect Ui to backend pipeline processing to complete tasks (2 weeks)</li>
-</ul>
-</li>
-</ol>
-<p>ETA: ~7-10 weeks</p>
-<p><em>For further work:</em></p>
-<ul>
-<li>a job viewer/manager can be developed to gain more control over running pipeline</li>
-<li>ability to save/load pipelines</li>
-<li>Use docker to containerize project</li>
-</ul>
+<a id="user-content-what-is-drone-mapping" class="anchor" href="#what-is-drone-mapping" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is drone mapping?</h2>
+<p>Drone mapping is the art of generating a digital model of the surface of an area using images that are taken with drones. These models provide useful information about the land (e.g, distances, areas or volume measurements) and can be used to create various types of plans/schemas used in civil industry, mining, real estate, and law.</p>
+<p>As well as being great for the environment (no more paper, digital drawings are the future! <g-emoji class="g-emoji" alias="deciduous_tree" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f333.png">🌳</g-emoji>), drone mapping has lots of advantages over other types of satellite, human, or aircraft inspection. It’s much faster, cheaper, and more precise. It also allows us to track the progress of a project by keeping a record of developments as they happen.</p>
 <h3>
-<a id="user-content-concerns-and-time-delayers" class="anchor" href="#concerns-and-time-delayers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Concerns and time delayers</h3>
-<ul>
-<li>Understanding SpikeInterface elements, associated parameters (do they all have defaults?) and time/resource consuming tasks</li>
-</ul>
-<hr>
-<hr>
-<hr>
+<a id="user-content-what-do-i-need-to-get-started" class="anchor" href="#what-do-i-need-to-get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What do I need to get started?</h3>
+<p>First of all, you need the right drone and the right conditions. Your drone must be able to cover the area that you want to map. Depending on the size of this area and the size of your drone, you might need to do more than one flight. The best conditions for flying are when it’s not too windy, dusty, or cloudy. Check out <a href="https://www.uavforecast.com/" rel="nofollow">UAV forecast</a> to get a live weather forecast with information on important variables like wind speed, visibility, cloud cover, and GPS satellite health.</p>
+<p>Secondly, the drone must be able to perform <em>missions</em>, i.e., it has to be able to follow a sequence of waypoints in the air that will serve as a path for taking pictures. Not all drones are capable of performing missions. Missions are planned from a mobile app and the app defines which drones are supported.</p>
+<p>And finally, the drone must have a camera. To create the surface model, you’re also going to need some software to process the images it takes.</p>
+<p>:::info
+<strong>Note:</strong> For this article, I used a DJI Mavic Air drone. Full specs can be found on the <a href="https://www.dji.com/mavic-air" rel="nofollow">official page</a>.
+:::</p>
 <h2>
-<a id="user-content-research" class="anchor" href="#research" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Research</h2>
-<p>A python pipeline/workflow library allows the user to run tasks in different ways which includes single sequential lines, trees, diamonds and decision forks.
-Python pipeline libraries/frameworks:</p>
+<a id="user-content-capturing-images" class="anchor" href="#capturing-images" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Capturing images</h2>
+<p>For this task, the drone must be able to follow a path in the air, while taking overhead photos. These photos are taken at predefined spatial or temporal intervals and can sometimes include images from different angles to improve the accuracy of the model. Photos contain metadata, like <a href="https://en.wikipedia.org/wiki/Exif" rel="nofollow">EXIF tags</a>, that store the location (GPS coordinates) where the photo was taken -- this will be used to build the model.</p>
+<h3>
+<a id="user-content-mission-platforms" class="anchor" href="#mission-platforms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mission platforms</h3>
+<p>Before you take your drone out, you need to install an app that has drone mapping capabilities. There are also desktop applications for this, but most people find that a mobile app is more practical. Apps for drone mapping allow you to define your flying area and create a mission for your drone.</p>
+
+<p><a href="https://camo.githubusercontent.com/eca42d18054fb3d0df585f912700edc648dd9c67112b38af5965155f4c5ce369/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f30663762643133396239303664623037373639636635613130663566623633622e6a706567" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/eca42d18054fb3d0df585f912700edc648dd9c67112b38af5965155f4c5ce369/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f30663762643133396239303664623037373639636635613130663566623633622e6a706567" alt="drone-apps" data-canonical-src="https://docs.monadical.com/uploads/upload_0f7bd139b906db07769cf5a10f5fb63b.jpeg" style="max-width:100%;"></a></p>
+
+<br>
+<p>I’ve worked with a few different apps in the past and have found that these three work best for my drone:</p>
+<p><strong>DroneDeploy:</strong> Easy to operate and takes a good number of images. Usually generates a long path, but is fast to fly.</p>
+<p><strong>DroneHarmony:</strong> Easy to operate, has lots of options for area coverage planning, but takes fewer pics than some apps (depending on your settings) and requires more knowledge to run.</p>
+<p><strong>DJI Pilot:</strong> Generally works well and takes a good number of images, but uses mapbox (an outdated satellite map) and makes drone speed a little slow.</p>
+<p>:::info
+<strong>Note:</strong> Pix4DCapture, MissionPlanner, UgCS for DJI, 3D Survey Pilot and Precision Flight do not support DJI Mavic Air.
+:::</p>
+<p>Once you’ve chosen your app, you’ll need to open a map on it, locate the place you want to model, and draw your area of interest. When you have your area defined, the app’s algorithm will generate a mission for the drone. The mission contains the path that the drone will follow with the points at which it will take pictures of the ground.</p>
+
+<p><a href="https://camo.githubusercontent.com/2013884f0690d04165f5cf8c09c512c72c939d55ad95a5295dbc7bb08bfcddd0/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f36313139363863356163626333343433386162663261393937303935396531392e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/2013884f0690d04165f5cf8c09c512c72c939d55ad95a5295dbc7bb08bfcddd0/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f36313139363863356163626333343433386162663261393937303935396531392e706e67" alt="overlap" data-canonical-src="https://docs.monadical.com/uploads/upload_611968c5acbc34438abf2a9970959e19.png" style="max-width:100%;"></a></p>
+
+<p><em>From <a href="https://support.dronedeploy.com/docs/making-successful-maps" rel="nofollow">https://support.dronedeploy.com/docs/making-successful-maps</a></em></p>
+<br>
+<p>When setting up the mission in the app, you can adjust various parameters. One of the most important settings to consider is <em>overlap</em>. This defines how much one picture will overlap with its neighboring pictures, and is essential to the construction of the final image of the site (which is built from these smaller pictures). Having a good amount of overlap will improve the model quality, since it will allow for more detail in the final image. There’s a tradeoff to think about here: a longer mission and more pictures means more memory and more flying time. Height is another important parameter: at lower altitudes you can see more detail, but this will increase the mission length and the number of pictures that need to be taken.</p>
+<p>When I tested the apps mentioned above (DroneHarmony, DroneDeploy and DJI Pilot), I defined the flying area in roughly the same way each time. Each app created a slightly different mission, since they each use a different algorithm. To improve the quality of the final model, some apps extend the path to create more waypoints, and some generate double orthogonal paths (i.e., another path at a 90º angle).</p>
+<p>For my flight, I used DroneHarmony and planned the mission in the field, but you can define the area and generate the mission at any time, I did it just before takeoff.</p>
+
+<p><a href="https://camo.githubusercontent.com/82f9c87ae6690ff2a83f00d78bc7500688df7ccb3eff7260674eb9ab290a9d0c/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f30323630653863373163386131613031343437353564323464653534343439342e6a7067" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/82f9c87ae6690ff2a83f00d78bc7500688df7ccb3eff7260674eb9ab290a9d0c/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f30323630653863373163386131613031343437353564323464653534343439342e6a7067" alt="mission-paths" data-canonical-src="https://docs.monadical.com/uploads/upload_0260e8c71c8a1a0144755d24de544494.jpg" style="max-width:100%;"></a></p>
+
+<p><em>DroneHarmony planned (yellow) and traveled (green) paths</em></p>
+<br>
+<h2>
+<a id="user-content-processing-images" class="anchor" href="#processing-images" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Processing images</h2>
+<p>After gathering the images, the next step is a process called <a href="https://en.wikipedia.org/wiki/Photogrammetry" rel="nofollow"><em>photogrammetry</em></a> to construct the final model of the area. Photogrammetry is performed by software, and involves taking measurements from photos by using trigonometry and the GPS coordinates attached to each image. The resulting model contains information concerning the height of the surface of the terrain and can be used to create contour lines, a point cloud and/or an <a href="https://en.wikipedia.org/wiki/Orthophoto" rel="nofollow">orthophoto</a>.</p>
+<p>Before you process your images, you need to have an idea of your desired result. Do you want a digital 3D model, a contour lines image, or an orthophoto? You will input this into your photogrammetry platform (if you don’t specify this up front, the software will churn out every possible result and take much longer to process your images).</p>
+<h3>
+<a id="user-content-photogrammetry-platforms" class="anchor" href="#photogrammetry-platforms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Photogrammetry platforms</h3>
+<h4>
+<a id="user-content-dronedeploy--pix4d" class="anchor" href="#dronedeploy--pix4d" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DroneDeploy / Pix4D</h4>
+<p>Both of these photogrammetry platforms are super user-friendly since they have a good graphical interface. All you need to do is load your images and let the software do its job (this takes ~5 hours for ~150 images). After processing, you can preview and download the results from a web browser. Pix4D also has a desktop version.</p>
+<p>The main disadvantage here is the price for the service (around US$150 per month), although both platforms do include mobile apps for mission planning (which make the workflow so much easier), along with a support center and an account-based management platform for multiple projects.</p>
+<h4>
+<a id="user-content-opendronemap" class="anchor" href="#opendronemap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OpenDroneMap</h4>
+<p><code>ODM</code> is an open source (yay! <g-emoji class="g-emoji" alias="confetti_ball" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f38a.png">🎊</g-emoji>) photogrammetry tool that you can run yourself using <a href="https://www.docker.com/why-docker" rel="nofollow"><code>Docker</code></a> on your computer. If you’re not comfortable using the command line and Docker, <code>ODM</code> offers a web interface called <a href="https://webodm.net/" rel="nofollow"><code>WebODM</code></a> (around US$29/month or pay-as-you-go), a graphical version of the <code>ODM</code> command line interface.</p>
+<p>To process your images in <code>ODM</code>, first create a folder (e.g, <code>drone_mapping</code>) where you will keep your projects. Inside <code>drone_mapping</code>, create a folder to store your project (e.g., <code>ProjectName</code>), and inside <code>ProjectName</code>, create a folder called <code>images</code>, where you will manually transfer the images gathered by the drone. Now you can enter the following into the command line:</p>
+<div class="highlight highlight-source-fish"><pre>docker run <span class="pl-s">-ti</span> <span class="pl-s">--rm</span> <span class="pl-s">-v</span> /path/to/projects/drone_mapping:/datasets opendronemap/odm <span class="pl-s">--project-path</span> /datasets ProjectName</pre></div>
+<p>If you want to make the processing faster, you can also include some flags in the command line to let the program know whether or not you want to process a 3D model and/or a surface model. Set these flags according to what result you want, e.g., a 3D model, an orthophoto, a point cloud, etc. Take a look at the <a href="https://docs.opendronemap.org/outputs.html" rel="nofollow">ODM outputs</a> and <a href="https://docs.opendronemap.org/arguments.html" rel="nofollow">ODM options and flags</a> to learn more.</p>
+<h2>
+<a id="user-content-results" class="anchor" href="#results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results</h2>
+<p>Here are the resulting models of some of my recent attempts. The first two are from the flight I’ve detailed in this post. I chose to model the area around a friend’s house, close to the top of a hill, since there are lots of nice slopes here.</p>
+
+<p><a href="https://camo.githubusercontent.com/6f09333c0e8cdfe7ac1fb74db716e82f6c2f813c57ffa9b614b052fe5d00e436/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f34666638316636666366316364363466616139376330613761663839363961352e676966" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/6f09333c0e8cdfe7ac1fb74db716e82f6c2f813c57ffa9b614b052fe5d00e436/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f34666638316636666366316364363466616139376330613761663839363961352e676966" alt="hill-gif" data-canonical-src="https://docs.monadical.com/uploads/upload_4ff81f6fcf1cd64faa97c0a7af8969a5.gif" style="max-width:100%;"></a></p>
+<p><a href="https://camo.githubusercontent.com/76480f0a34b61dbe28f94462d2660237a0aa19edfe3e95053c2c366fd0ee0f07/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f32366239323034636566376439646366356562336630396232393532346263332e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/76480f0a34b61dbe28f94462d2660237a0aa19edfe3e95053c2c366fd0ee0f07/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f32366239323034636566376439646366356562336630396232393532346263332e706e67" alt="hill-still" data-canonical-src="https://docs.monadical.com/uploads/upload_26b9204cef7d9dcf5eb3f09b29524bc3.png" style="max-width:100%;"></a></p>
+
+<p>The model below is from part of a highway at the edge of a mountain. You can see that, while the highway has come out well, the trees and the terrain on the right were harder to model (that’s why I’ve picked an angle that shows off more of the highway!).</p>
+
+<p><a href="https://camo.githubusercontent.com/9467923aa1518510bceb6587ad153c3e928bd7cf38383be26667e22ba8b39518/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f65646661393664633363356662316635326130626166356338356639626566642e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/9467923aa1518510bceb6587ad153c3e928bd7cf38383be26667e22ba8b39518/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f65646661393664633363356662316635326130626166356338356639626566642e706e67" alt="highway" data-canonical-src="https://docs.monadical.com/uploads/upload_edfa96dc3c5fb1f52a0baf5c85f9befd.png" style="max-width:100%;"></a></p>
+
+<br>
+<p>The next model shows a roadside area that is under construction. For construction projects like this one, drone mapping can be used to measure distances, calculate soil volume, or simply track the progress of a build.</p>
+
+<p><a href="https://camo.githubusercontent.com/53d1efe579995a7ffc71976dcd6696313ac975d0499c02b1fc869291e624bdaa/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f38343131383139623134353030336539623831313263373163613263623062332e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/53d1efe579995a7ffc71976dcd6696313ac975d0499c02b1fc869291e624bdaa/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f38343131383139623134353030336539623831313263373163613263623062332e706e67" alt="civil-construction" data-canonical-src="https://docs.monadical.com/uploads/upload_8411819b145003e9b8112c71ca2cb0b3.png" style="max-width:100%;"></a></p>
+
+<br>
+<p>This last model was done for a friend who wanted to make an architectural sketch of a house. He used the contour lines extracted from this digital surface model (built with ODM).</p>
+
+<p><a href="https://camo.githubusercontent.com/e0d8746e043c95bd92b2eb3769f60aab0602afea944bbe6c1e855586eb788d4b/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f61373436643366356362356331333462396538363266353637326239613866352e6a706567" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/e0d8746e043c95bd92b2eb3769f60aab0602afea944bbe6c1e855586eb788d4b/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f61373436643366356362356331333462396538363266353637326239613866352e6a706567" alt="contour-lines" data-canonical-src="https://docs.monadical.com/uploads/upload_a746d3f5cb5c134b9e862f5672b9a8f5.jpeg" style="max-width:100%;"></a></p>
+<p><a href="https://camo.githubusercontent.com/634ce0e09a67b47056764a0edecd39403660e6f7571bb0cec980e52deb9de583/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f39633232323365643661393131306132353834663162613365353335646236382e6a706567" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/634ce0e09a67b47056764a0edecd39403660e6f7571bb0cec980e52deb9de583/68747470733a2f2f646f63732e6d6f6e61646963616c2e636f6d2f75706c6f6164732f75706c6f61645f39633232323365643661393131306132353834663162613365353335646236382e6a706567" alt="house-sketch" data-canonical-src="https://docs.monadical.com/uploads/upload_9c2223ed6a9110a2584f1ba3e535db68.jpeg" style="max-width:100%;"></a></p>
+<p><em>From Constructo: Arquitectura, Diseño, Construcción</em></p>
+
+<h2>
+<a id="user-content-conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>Drone mapping is no longer a new and exclusive technology. Even though the selection of drones available is still pretty limited (mostly to DJI), there are some great options when it comes to mobile apps and photogrammetry software.</p>
+<p>So grab a drone, a mission app, some photogrammetry software, and you're all set. Have a good flight and watch out for those trees! <g-emoji class="g-emoji" alias="sunglasses" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png">😎</g-emoji></p>
+<h2>
+<a id="user-content-tips" class="anchor" href="#tips" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tips</h2>
 <ul>
-<li>
-<a href="https://github.com/apache/airflow">Apache Airflow</a>: Robust enough, GUI included, complex structure.</li>
-<li>
-<a href="https://github.com/couler-proj/couler">Couler</a>: Made to be simpler than airflow, requires Argo</li>
-<li>
-<a href="https://github.com/mara/mara-pipelines">Mara pipelines</a>: Looks understandable, requires Postgres</li>
-<li>
-<a href="https://github.com/python-bonobo/bonobo">Bonobo</a>: ETL python framework, easy syntax, Django commands compatible</li>
-<li>
-<a href="https://github.com/luispedro/jug">Jug</a>: Simple, maybe not enough, still worth the review</li>
-<li>
-<a href="https://github.com/Netflix/metaflow">Metaflow</a>: Powered by Netflix, looks powerful</li>
-<li>
-<a href="https://pypyr.io/" rel="nofollow">pypyr</a>: Uses .yaml files to define the pipeline</li>
-<li>
-<a href="https://dagster.io/" rel="nofollow">dagster</a>: Pipelines written in python, complex and robust</li>
-<li>
-<a href="https://github.com/ploomber/ploomber">ploomber</a>: Based on modular scripts, looks useful</li>
+<li>Fly between 10AM and 2PM (less cloud coverage is better, light is very important, shadows downgrade model quality, and wind makes it harder for the drone).</li>
+<li>High overlap helps (but weigh this against cost to battery life and processing time).</li>
+<li>Repeat the path in an orthogonal direction to improve model accuracy quality.</li>
+<li>Avoid any moving objects in the area -- don’t map a construction site with moving vehicles!</li>
 </ul>
+<hr>
+
+<p><a href="https://camo.githubusercontent.com/ee0bb0a5aac481f71f7cba5dfa9e5a677c33ffc00930f29df1aed2c5c2d192a6/68747470733a2f2f6d6f6e61646963616c2e636f6d2f7374617469632f6c6f676f2d626c61636b2e706e67" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/ee0bb0a5aac481f71f7cba5dfa9e5a677c33ffc00930f29df1aed2c5c2d192a6/68747470733a2f2f6d6f6e61646963616c2e636f6d2f7374617469632f6c6f676f2d626c61636b2e706e67" data-canonical-src="https://monadical.com/static/logo-black.png" style="max-width:100%;"></a><br></p>
+<p>Monadical.com | Full-Stack Consultancy
+<em>We build software that outlasts us</em></p>
+
 
               </article>
             </div>
