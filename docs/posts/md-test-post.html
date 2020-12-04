@@ -134,15 +134,59 @@
                 <div class="col">
                     
                         <article class="article-content">
-                            <blockquote>
-<p>[TOC]</p>
-</blockquote>
+                            <h1>SpikeInterface:<br> graphical pipeline designer</h1>
+<h2>Context</h2>
+<p><a href="https://github.com/SpikeInterface/spikeinterface">SpikeInterface</a> is a Python framework designed to unify preexisting spike sorting technologies into a single code base. It is a piece of software mostly used among academic neuroscience labs.</p>
+<p>There also exists <a href="https://github.com/SpikeInterface/spikely">spikely</a>, which is a graphic UI built with <a href="https://en.wikipedia.org/wiki/PyQt">PyQT</a> and it wraps around SpikeInterface so SpikeInterface library can be used without writing a single line of code.</p>
+<p><img alt="" src="https://docs.monadical.com/uploads/upload_c8439e9b37ddb18452709c8cf457ed34.png" /></p>
+<p>This window provides a way to design a pipeline of SpikeInterface elements that needs to be run as jobs.</p>
+<h2>Issue</h2>
+<p>spikely interface works good but looks tough and doesn't represent a clear workflow/pipeline, so creating a better graphical interface is required.</p>
+<p>Suggestion is to use <a href="https://reactjs.org/">React</a>  and <a href="https://github.com/uber/react-digraph">react-digraph</a> (or similar) along with <a href="https://www.djangoproject.com/">Django</a> and <a href="https://airflow.apache.org/">airflow</a> (or similar python job scheduler) to build a webapp that offers a better graphical interface to design workflows, run and manage jobs.</p>
+<p>Like this one:
+<img alt="" src="https://docs.monadical.com/uploads/upload_41be742479a2397ac3ae5cd6b7697552.gif" /></p>
+<p>or this one:
+<img alt="" src="https://docs.monadical.com/uploads/upload_37c2cacf1d3faaa2a0f49a2c3b57b5ca.png" /></p>
+<h2>Proposal</h2>
+<p>Goal is to improve the user experience on pipeline designing, steps to accomplish that can be summarized like:</p>
+<ol>
+<li>Abstract/couple SpikeInterface <a href="https://spikeinterface.readthedocs.io/en/latest/api.html">elements</a> with a DAG (directional acyclic graph) pipeline framework and be able to run sample pipelines. <em>Note: providing an example is helpful</em> <strong>~3-4 weeks</strong><ul>
+<li>Create script for running pipelines using preferred structure to save it</li>
+</ul>
+</li>
+<li>Create Django project, react page and pipeline designing view, including: list of nodes, way to draw and connect them, parameter setting panel <strong>~3-4 weeks</strong></li>
+<li>Connect point 1 and 2 to programmatically construct pipelines with webapp and execute them with DAG+SpikeInterface <strong>~7 weeks</strong><ul>
+<li>Connect ui to previous Abstraction (not running yet) (2 weeks)</li>
+<li>Add react-graph, constructing pipelines, saving params and saving fine pipeline data file (3 weeks)</li>
+<li>Connect Ui to backend pipeline processing to complete tasks (2 weeks)</li>
+</ul>
+</li>
+</ol>
+<p>ETA: ~7-10 weeks</p>
+<p><em>For further work:</em>
+* a job viewer/manager can be developed to gain more control over running pipeline
+* ability to save/load pipelines
+* Use docker to containerize project </p>
+<h3>Concerns and time delayers</h3>
+<ul>
+<li>Understanding SpikeInterface elements, associated parameters (do they all have defaults?) and time/resource consuming tasks</li>
+</ul>
+<h2>---</h2>
 <hr />
-<h1>Another test</h1>
-<h3>Merry Xmas</h3>
-<p>:::info
-<em>...and a happy new year...</em>
-:::</p>
+<h2>Research</h2>
+<p>A python pipeline/workflow library allows the user to run tasks in different ways which includes single sequential lines, trees, diamonds and decision forks.
+Python pipeline libraries/frameworks:</p>
+<ul>
+<li><a href="https://github.com/apache/airflow">Apache Airflow</a>: Robust enough, GUI included, complex structure.</li>
+<li><a href="https://github.com/couler-proj/couler">Couler</a>: Made to be simpler than airflow, requires Argo</li>
+<li><a href="https://github.com/mara/mara-pipelines">Mara pipelines</a>: Looks understandable, requires Postgres</li>
+<li><a href="https://github.com/python-bonobo/bonobo">Bonobo</a>: ETL python framework, easy syntax, Django commands compatible</li>
+<li><a href="https://github.com/luispedro/jug">Jug</a>: Simple, maybe not enough, still worth the review</li>
+<li><a href="https://github.com/Netflix/metaflow">Metaflow</a>: Powered by Netflix, looks powerful</li>
+<li><a href="https://pypyr.io/">pypyr</a>: Uses .yaml files to define the pipeline</li>
+<li><a href="https://dagster.io/">dagster</a>: Pipelines written in python, complex and robust</li>
+<li><a href="https://github.com/ploomber/ploomber">ploomber</a>: Based on modular scripts, looks useful</li>
+</ul>
                         </article>
                     
                 </div>
