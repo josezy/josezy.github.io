@@ -3,10 +3,10 @@
 import os
 import sys
 import json
-import markdown
 import subprocess
 from threading import Thread
 from datetime import datetime
+from grip import export
 
 from jinja2 import Markup
 from flask import Flask, render_template, redirect
@@ -40,9 +40,9 @@ def download_post(post):
 
 
 def md_to_html(post):
-    markdown.markdownFromFile(
-        input=post["markdown"],
-        output=os.path.join('templates', post['template']),
+    export(
+        path=post["markdown"],
+        out_filename=os.path.join('templates', post['template']),
     )
 
 

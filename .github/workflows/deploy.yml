@@ -26,7 +26,7 @@ jobs:
           echo "Here I update content.json from md files metadata"
       - name: Build site
         run: |
-          pip3 install flask markdown
+          pip3 install flask grip
           ./build
       - name: Commit files
         run: |
