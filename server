@@ -5,9 +5,10 @@ import sys
 import json
 import markdown
 import subprocess
+import pymdownx.emoji
+
 from threading import Thread
 from datetime import datetime
-# from grip import export
 
 from jinja2 import Markup
 from flask import Flask, render_template, redirect
@@ -44,11 +45,16 @@ def md_to_html(post):
     markdown.markdownFromFile(
         input=post["markdown"],
         output=os.path.join('templates', post['template']),
+        extensions=[
+            'pymdownx.emoji',
+        ],
+        extension_configs = {
+            "pymdownx.emoji": {
+                "emoji_index": pymdownx.emoji.twemoji,
+                "emoji_generator": pymdownx.emoji.to_alt,
+            }
+        }
     )
-    # export(
-    #     path=post["markdown"],
-    #     out_filename=os.path.join('templates', post['template']),
-    # )
 
 
 CONFIG = load_config(CONFIG_FILE)
