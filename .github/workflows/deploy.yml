@@ -51,7 +51,7 @@ jobs:
           architecture: x64
       - name: Build site
         run: |
-          pip3 install flask
+          pip3 install flask markdown
           ./build
       - name: Commit files
         run: |
