@@ -18,7 +18,7 @@ tags: drones, drone-mapping, missions, modelling, photogrammetry</p>
 <p>So let’s take off! But first...</p>
 <h2>What is drone mapping?</h2>
 <p>Drone mapping is the art of generating a digital model of the surface of an area using images that are taken with drones. These models provide useful information about the land (e.g, distances, areas or volume measurements) and can be used to create various types of plans/schemas used in civil industry, mining, real estate, and law. </p>
-<p>As well as being great for the environment (no more paper, digital drawings are the future! :deciduous_tree:), drone mapping has lots of advantages over other types of satellite, human, or aircraft inspection. It’s much faster, cheaper, and more precise. It also allows us to track the progress of a project by keeping a record of developments as they happen.</p>
+<p>As well as being great for the environment (no more paper, digital drawings are the future! 🌳), drone mapping has lots of advantages over other types of satellite, human, or aircraft inspection. It’s much faster, cheaper, and more precise. It also allows us to track the progress of a project by keeping a record of developments as they happen.</p>
 <h3>What do I need to get started?</h3>
 <p>First of all, you need the right drone and the right conditions. Your drone must be able to cover the area that you want to map. Depending on the size of this area and the size of your drone, you might need to do more than one flight. The best conditions for flying are when it’s not too windy, dusty, or cloudy. Check out <a href="https://www.uavforecast.com/">UAV forecast</a> to get a live weather forecast with information on important variables like wind speed, visibility, cloud cover, and GPS satellite health.</p>
 <p>Secondly, the drone must be able to perform <em>missions</em>, i.e., it has to be able to follow a sequence of waypoints in the air that will serve as a path for taking pictures. Not all drones are capable of performing missions. Missions are planned from a mobile app and the app defines which drones are supported.</p>
@@ -63,7 +63,7 @@ tags: drones, drone-mapping, missions, modelling, photogrammetry</p>
 <p>Both of these photogrammetry platforms are super user-friendly since they have a good graphical interface. All you need to do is load your images and let the software do its job (this takes ~5 hours for ~150 images). After processing, you can preview and download the results from a web browser. Pix4D also has a desktop version.</p>
 <p>The main disadvantage here is the price for the service (around US$150 per month), although both platforms do include mobile apps for mission planning (which make the workflow so much easier), along with a support center and an account-based management platform for multiple projects.</p>
 <h4>OpenDroneMap</h4>
-<p><code>ODM</code> is an open source (yay! :confetti_ball:) photogrammetry tool that you can run yourself using <a href="https://www.docker.com/why-docker"><code>Docker</code></a> on your computer. If you’re not comfortable using the command line and Docker, <code>ODM</code> offers a web interface called <a href="https://webodm.net/"><code>WebODM</code></a> (around US$29/month or pay-as-you-go), a graphical version of the <code>ODM</code> command line interface.</p>
+<p><code>ODM</code> is an open source (yay! 🎊) photogrammetry tool that you can run yourself using <a href="https://www.docker.com/why-docker"><code>Docker</code></a> on your computer. If you’re not comfortable using the command line and Docker, <code>ODM</code> offers a web interface called <a href="https://webodm.net/"><code>WebODM</code></a> (around US$29/month or pay-as-you-go), a graphical version of the <code>ODM</code> command line interface.</p>
 <p>To process your images in <code>ODM</code>, first create a folder (e.g, <code>drone_mapping</code>) where you will keep your projects. Inside <code>drone_mapping</code>, create a folder to store your project (e.g., <code>ProjectName</code>), and inside <code>ProjectName</code>, create a folder called <code>images</code>, where you will manually transfer the images gathered by the drone. Now you can enter the following into the command line:</p>
 <p><code>fish
 docker run -ti --rm -v /path/to/projects/drone_mapping:/datasets opendronemap/odm --project-path /datasets ProjectName</code></p>
@@ -92,7 +92,7 @@ docker run -ti --rm -v /path/to/projects/drone_mapping:/datasets opendronemap/od
 </center></p>
 <h2>Conclusion</h2>
 <p>Drone mapping is no longer a new and exclusive technology. Even though the selection of drones available is still pretty limited (mostly to DJI), there are some great options when it comes to mobile apps and photogrammetry software.</p>
-<p>So grab a drone, a mission app, some photogrammetry software, and you're all set. Have a good flight and watch out for those trees! :sunglasses: </p>
+<p>So grab a drone, a mission app, some photogrammetry software, and you're all set. Have a good flight and watch out for those trees! 😎 </p>
 <h2>Tips</h2>
 <ul>
 <li>Fly between 10AM and 2PM (less cloud coverage is better, light is very important, shadows downgrade model quality, and wind makes it harder for the drone).</li>
