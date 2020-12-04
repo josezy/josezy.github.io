@@ -3,6 +3,7 @@
 import os
 import sys
 import json
+import markdown
 import subprocess
 from threading import Thread
 from datetime import datetime
@@ -15,9 +16,9 @@ from flask import Flask, render_template, redirect
 app = Flask(__name__)
 app.jinja_env.globals['include_raw'] = lambda filename: Markup(app.jinja_loader.get_source(app.jinja_env, filename)[0])
 CONFIG_FILE = 'content.json'
-TEAM_FILE = 'team.json'
-STACK_FILE = 'stacks.json'
-OPEN_POSITIONS = 'open-positions.json'
+# TEAM_FILE = 'team.json'
+# STACK_FILE = 'stacks.json'
+# OPEN_POSITIONS = 'open-positions.json'
 HOST = 'http://127.0.0.1:5000'
 
 
@@ -38,11 +39,18 @@ def download_post(post):
     proc = subprocess.run(CMD, capture_output=True)
 
 
+def md_to_html(post):
+    markdown.markdownFromFile(
+        input=post["markdown"],
+        output=os.path.join('templates', post['template']),
+    )
+
+
 CONFIG = load_config(CONFIG_FILE)
 
 PAGES = {page['url']: page for page in list(CONFIG['PAGES'].values())}  # {url: {page_data}}
 POSTS = {post['url']: post for post in list(CONFIG['POSTS'].values())}  # {url: {post_data}}
-CASES = {case['url']: case for case in list(CONFIG['CASES'].values())}  # {url: {post_data}}
+# CASES = {case['url']: case for case in list(CONFIG['CASES'].values())}  # {url: {post_data}}
 
 
 ### Routes
@@ -75,7 +83,10 @@ def render_page(path):
 @app.route('/posts/<path>')
 def render_post(path):
     post = POSTS[f'/posts/{path}']
-    download_post(post)
+    if post.get("markdown"):
+        md_to_html(post)
+    else:
+        download_post(post)
     return render_template('post.html', now=datetime.now(), **CONFIG, **post)
 
 if __name__ == '__main__':

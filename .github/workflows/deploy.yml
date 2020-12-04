@@ -8,43 +8,8 @@ env:
   TERM: xterm
   BRANCH: master
 jobs:
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   if: "!contains(github.event.head_commit.author, 'HackMD')"
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #       with:
-  #         fetch-depth: 1
-  #     - name: Set up Python
-  #       uses: actions/setup-python@v1
-  #       with:
-  #         python-version: 3.7
-  #         architecture: x64
-  #     - name: Detect last autodeployment
-  #       run: |
-  #         LAST_AUTODEPLOYED=$(git log --oneline -n 1 HEAD | grep -q "Autodeployed by git hub actions" && echo "1" || echo "0")
-  #         echo "SKIP_STEP=$LAST_AUTODEPLOYED" >> $GITHUB_ENV
-  #     - name: Create local changes
-  #       if: env.SKIP_STEP == '0'
-  #       run: |
-  #         pip3 install flask
-  #         ./build
-  #     - name: Commit files
-  #       if: env.SKIP_STEP == '0'
-  #       run: |
-  #         git config --local user.email "ci@monadical.com"
-  #         git config --local user.name "CI monadical.com"
-  #         git add templates/
-  #         git add docs/
-  #         git commit -m "Autodeployed by git hub actions" -a
-  #     - name: Push changes
-  #       if: env.SKIP_STEP == '0'
-  #       uses: ad-m/github-push-action@master
-  #       with:
-  #         github_token: ${{ secrets.AUTODEPLOY_GITHUB_TOKEN }}
-  #         branch: ${{ env.BRANCH }}
 
-  md_to_html:
+  update-content:
     runs-on: ubuntu-latest
     if: "contains(github.event.head_commit.author.name, 'HackMD')"
     steps:
@@ -56,16 +21,45 @@ jobs:
         with:
           python-version: 3.7
           architecture: x64
-      - name: Generate html from md
+      - name: Update content.json
         run: |
-          pip3 install markdown
-          python md_to_html.py
+          pip3 install flask
+          echo "Here I update content.json based on md files?"
       - name: Commit files
         run: |
           git config --local user.email "ci@monadical.com"
           git config --local user.name "CI Monadical"
-          git add posts/
-          git commit -m "MD files converted to HTML by github actions" -a
+          git add content.json
+          git commit -m "content.json updated by github actions" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.AUTODEPLOY_GITHUB_TOKEN }}
+          branch: ${{ env.BRANCH }}
+
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.author.name, 'HackMD')"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+          architecture: x64
+      - name: Build site
+        run: |
+          pip3 install flask
+          ./build
+      - name: Commit files
+        run: |
+          git config --local user.email "ci@monadical.com"
+          git config --local user.name "CI Monadical"
+          git add templates/
+          git add docs/
+          git commit -m "Stevie blog static site built by github actions" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:

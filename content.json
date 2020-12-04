@@ -1,6 +1,6 @@
 {
-  "SITE_TITLE": "Monadical Consulting",
-  "SITE_DOMAIN": "monadical.com",
+  "SITE_TITLE": "Stevie Blog",
+  "SITE_DOMAIN": "stevie-blog.com",
   "PAGES": {
     "index": {
       "title": "Blog",
@@ -9,6 +9,28 @@
     }
   },
   "POSTS": {
+    "md-test-post": {
+      "title": "Test Markdown blog post",
+      "description": "Test Markdown blog post",
+      "date": "2020-12-02",
+      "img": "/static/test-post.jpg",
+      "tags": [
+        "test",
+        "post",
+        "markdown"
+      ],
+      "length": "1 min read",
+      "markdown": "markdown/test.md",
+      "url": "/posts/md-test-post.html",
+      "template": "posts/md-test-post.html",
+      "author": {
+        "name": "jose",
+        "title": "kingslayer",
+        "handle": "@josezy",
+        "url": "",
+        "image": "/static/jose.jpg"
+      }
+    },
     "test-post": {
       "title": "Test Stansalone blog post",
       "description": "Test Stansalone blog post",
@@ -873,6 +895,5 @@
       "icon": "github"
     }
   },
-  "CASES": {},
   "HeaderLinks": []
 }

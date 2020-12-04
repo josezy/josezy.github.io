@@ -4,11 +4,10 @@
 # http://redsymbol.net/articles/unofficial-bash-strict-mode/
 # https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
 # set -o xtrace
-set -o errexit
-set -o errtrace
-set -o nounset
-set -o pipefail
-IFS=$'\n'
+# set -o errexit
+# set -o errtrace
+# set -o nounset
+# set -o pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -20,8 +19,8 @@ red=${txtbld}$(tput setaf 1)
 blue=${txtbld}$(tput setaf 4)
 green=${txtbld}$(tput setaf 2)
 white=${txtbld}$(tput setaf 7)
-current_branch=$(git rev-parse --abbrev-ref HEAD)
-LOCAL_RSYNC="${LOCAL_DEPLOY:-0}"
+# current_branch=$(git rev-parse --abbrev-ref HEAD)
+# LOCAL_RSYNC="${LOCAL_DEPLOY:-0}"
 
 echo "${blue}[+] Starting Flask server to render pages...$normal"
 ./server > /dev/null &
@@ -43,11 +42,10 @@ echo "${blue}[+] Saving pages as static HTML to output/...$normal"
 (cd docs; wget -q $(<pages.txt))
 (cd docs/posts; wget -q $(<../posts.txt))
 
-echo ""
-echo "${blue}[+] Including stevie king to docs/...$normal"
-rsync -avh stevie-king/dist/ docs/publishing/
+# echo ""
+# echo "${blue}[+] Including stevie king to docs/...$normal"
+# rsync -avh stevie-king/dist/ docs/publishing/
 
 kill %1 > /dev/null
 echo ""
 echo "${green}[√] Build of static site to docs/ complete.$normal"
-echo "    Commit and push the build to master, then wait ~2-5 minutes for the changes to show up on https://monadical.com"
