@@ -9,9 +9,8 @@ env:
   BRANCH: master
 jobs:
 
-  update-content:
+  build:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.author.name, 'HackMD')"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -24,32 +23,7 @@ jobs:
       - name: Update content.json
         run: |
           pip3 install flask
-          echo "Here I update content.json based on md files?"
-      - name: Commit files
-        run: |
-          git config --local user.email "ci@monadical.com"
-          git config --local user.name "CI Monadical"
-          git add content.json
-          git commit -m "content.json updated by github actions" -a
-        continue-on-error: true
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.AUTODEPLOY_GITHUB_TOKEN }}
-          branch: ${{ env.BRANCH }}
-
-  build:
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.author.name, 'HackMD')"
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.7
-          architecture: x64
+          echo "Here I update content.json from md files metadata"
       - name: Build site
         run: |
           pip3 install flask markdown
