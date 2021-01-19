@@ -7,7 +7,7 @@ Tags:           drones
                 missions
                 modelling
                 photogrammetry
-Length:         12 min read
+Length:         15 min read
 Author:         Jose Benitez
 Author_Image:   https://josezy.github.io/static/jose.jpg
 Author_Title:   JoseB
