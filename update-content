@@ -22,7 +22,7 @@ def save_content(updated_content, fname=CONTENT_FILE):
 
 def posts_from_markdowns():
     posts = {}
-    md = markdown.Markdown(extensions = ['meta'])
+    md = markdown.Markdown(extensions=['meta'])
 
     paths = Path(MARKDOWN_PATH).glob('**/*.md')
     for path in paths:

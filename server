@@ -43,6 +43,7 @@ def md_to_html(post):
         input=post["markdown"],
         output=os.path.join('templates', post['template']),
         extensions=[
+            'meta',
             'pymdownx.emoji',
         ],
         extension_configs = {
