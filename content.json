@@ -8,7 +8,32 @@
       "template": "blog.html"
     }
   },
-  "POSTS": {},
+  "POSTS": {
+    "drone-mapping": {
+      "title": "How to Create Your Own Terrain Surface Model",
+      "description": "An introduction to drone mapping. How to create a terrain surface model using a mobile app, your computer or cloud service, and your own drone.",
+      "date": "2021-01-19",
+      "img": "https://josezy.github.io/static/drone-mapping.jpg",
+      "tags": [
+        "drones",
+        "drone-mapping",
+        "missions",
+        "modelling",
+        "photogrammetry"
+      ],
+      "length": "12 min read",
+      "markdown": "markdown/drone-mapping.md",
+      "url": "/posts/drone-mapping.html",
+      "template": "posts/drone-mapping.html",
+      "author": {
+        "name": "Jose Benitez",
+        "title": "JoseB",
+        "handle": "@yojosebenitez",
+        "url": "https://twitter.com/yojosebenitez",
+        "image": "https://josezy.github.io/static/jose.jpg"
+      }
+    }
+  },
   "SOCIAL": {
     "Twitter": {
       "url": "https://twitter.com/MonadicalSAS",

@@ -1,4 +1,137 @@
-<p>Title:          How to Create Your Own Terrain Surface Model
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stevie Blog | How to Create Your Own Terrain Surface Model</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/static/bootstrap4-pleasant.min.css">
+    <link rel="stylesheet" href="/static/core/css/base.css">
+
+    <link rel="canonical" href="https://stevie-blog.com/posts/drone-mapping.html" />
+
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="/static/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+<link rel="stylesheet" href="/static/core/css/index.css">
+<meta name="description" content="An introduction to drone mapping. How to create a terrain surface model using a mobile app, your computer or cloud service, and your own drone." />
+
+<!-- Required Open Graph data -->
+<meta property="og:title" content="How to Create Your Own Terrain Surface Model" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="https://stevie-blog.comhttps://josezy.github.io/static/drone-mapping.jpg" />
+<meta property="og:url" content="https://stevie-blog.com/posts/drone-mapping.html" />
+<!-- Optional Open Graph data -->
+<meta property="og:description" content="An introduction to drone mapping. How to create a terrain surface model using a mobile app, your computer or cloud service, and your own drone." />
+<meta property="og:site_name" content="Stevie Blog" />
+<meta property="og:locale" content="en_US" />
+<!-- Find additional markup on https://ogp.me -->
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@MonadicalSAS">
+<meta name="twitter:title" content="How to Create Your Own Terrain Surface Model">
+<meta name="twitter:description" content="An introduction to drone mapping. How to create a terrain surface model using a mobile app, your computer or cloud service, and your own drone.">
+<meta name="twitter:image" content="https://stevie-blog.comhttps://josezy.github.io/static/drone-mapping.jpg">
+
+</head>
+
+<body>
+    
+    <header>
+        
+        
+
+        <div id="header-container" class="container">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-white">
+                
+                <a class="navbar-brand" href="/index.html">
+                    <img srcset="
+                                /static/core/img/logo@3x.png 3x,
+                                /static/core/img/logo@2x.png 2x" src="/static/core/img/logo.png" id="brand-img" />
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav navbar-left">
+                        
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+
+
+    
+    <article>
+        
+
+    <style>
+        h1 {
+            font-family: 'Fjalla One', sans-serif !important;
+        }
+        .article-content {
+            border: 0px;
+        }
+        .fa-pencil {
+            opacity: 0.01;
+        }
+        footer .social-links {
+            text-shadow: 4px 4px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        footer .social-links a {
+            color: #333;
+            opacity: 0.7;
+        }
+        footer .social-links a:hover {
+            color: #333;
+            opacity: 0.9;
+        }
+        .authorbox {
+            font-size: 20px;
+        }
+        .post-footer h4 {
+            font-size: 18px;
+        }
+        body > main > h1 > em {
+            opacity: 0;
+        }
+        #ui-toc-affix {
+            display: block;
+            position: fixed;
+            top: 175px;
+            user-select: initial;
+            max-width: 20vw;
+            margin-left: 15px;
+            transition: opacity 400ms ease;
+        }
+    </style>
+
+    <div id="post-content">
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col">
+                    
+                        <article class="article-content">
+                            <p>Title:          How to Create Your Own Terrain Surface Model
 Description:    An introduction to drone mapping. How to create a terrain surface model using a mobile app, your computer or cloud service, and your own drone.
 Date:           2021-01-19
 Image:          https://josezy.github.io/static/drone-mapping.jpg
@@ -116,3 +249,173 @@ docker run -ti --rm -v /path/to/projects/drone_mapping:/datasets opendronemap/od
 <p>Monadical.com | Full-Stack Consultancy
 <em>We build software that outlasts us</em></p>
 <p></center></p>
+                        </article>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="post-footer" class="container post-footer">
+            <div class="authorbox">
+                <div style="padding-top: 10px">
+                    Jose Benitez
+                    <h4>
+                        JoseB
+                        
+                        <a href="https://twitter.com/yojosebenitez" target="_blank" rel="noopener">
+                            @yojosebenitez
+                        </a>
+                    </h4>
+                    <h5>Published on <a href="#permalink">2021-01-19</a></h5>
+                </div>
+                <img src="https://josezy.github.io/static/jose.jpg" width="100px"/>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <script src="https://utteranc.es/client.js"
+                repo="Monadical-SAS/monadical.com"
+                issue-term="pathname"
+                label="blog"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+        <center>
+            <br/><br/>
+            <a href="#post-content" class="btn btn-sm btn-shadow btn-success btn-light btn-outline-primary">
+                Back to top <i class="fa fa-arrow-up"></i>
+            </a>
+            <br/>
+            <br/><br/><br/>
+            <i style="font-size: 18px">Some other posts:</i>
+            <ul style="max-width: 400px; text-align: left; font-size: 16px">
+                <br/><br/>
+                
+                    
+                        <li><a href="/posts/drone-mapping.html">How to Create Your Own Terrain Surface Model</a></li>
+                    
+                
+                <li>
+                    <a href="/index.html">
+                        View more posts...
+                    </a>
+                </li>
+            </ul>
+            <br/>
+        </center>
+        <script>
+            // hide the table of contents nav when you scroll down past the end
+            $(window).scroll(function() {
+                const pos = $(window).scrollTop()
+                const threshold = $('.authorbox').position().top - 250
+                $('#ui-toc-affix').css({
+                    opacity: (pos > threshold) ? 0 : 1
+                });
+            });
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelector('#ui-toc-affix > div.toc-menu > a.go-to-bottom').innerHTML = 'Go to comments'
+                document.querySelector('#ui-toc-affix > div.toc-menu > a.go-to-bottom').href = '#post-footer'
+                document.querySelector('#ui-toc-affix > div.toc-menu > a.back-to-top').innerHTML = 'Go to top'
+                document.querySelector('#ui-toc-affix > div.toc-menu > a.back-to-top').href = '#post-content'
+                
+                // GET the original article source so they get they bump the view counter
+                fetch('', {mode: 'no-cors'})
+            })
+
+            $('[href$="bootstrap.min.css"]').attr('disabled', 'disabled')
+        </script>
+        <br/><br/>
+    </div>
+
+    </article>
+    
+
+    
+    <footer>
+        
+        
+        <div class="container footer">
+            
+            <div class="row contact-row">
+                <div class="col-12 col-lg-4 col-md-4">
+                    <ul>
+                        <li>Monadical Inc. © 2020 All rights reserved.</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-3 offset-lg-3 col-md-4">
+                    <ul>
+                        <li>hello@monadical.com</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-2 col-md-4">
+                    <ul>
+                        <li>+1 (917) 933-3760</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+    </footer>
+    
+
+    <script src="/static/squares.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
+    </script>
+
+
+    
+    
+
+    <!-- Smooth Scroll to Anchor Links Animation -->
+    <script>
+        function smoothScroll(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Scrolling to', this.getAttribute('href'))
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[smoothhashscroll]').forEach(elem => {
+                elem.parentNode.outerHTML = elem.parentNode.outerHTML
+            })
+            document.querySelectorAll('a[href^="#"], a[smoothhashscroll]').forEach(anchor => {
+                anchor.addEventListener('click', smoothScroll);
+            });
+        })
+    </script>
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(["setCookieDomain", "*.monadical.com"]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "//analytics.zervice.io/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '12']);
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript';
+            g.async = true;
+            g.defer = true;
+            g.src = u + 'matomo.js';
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+</body>
+
+</html>
