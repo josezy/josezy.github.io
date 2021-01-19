@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://stevie.monadical.com/sitemap.xml
-Host: https://stevie.monadical.com
