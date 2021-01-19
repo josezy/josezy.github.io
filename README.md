@@ -1,67 +1,44 @@
 # [Monadical](https://monadical.com)
 
-Simple static site powering Monadical.com.
-
-Static HTML is produced using a short custom website generator powered by Flask, Jinja2, & wget.
-  
-All metadata is stored in `content.json`.  
-Templates are in: `templates/`  
-Static files are in: `static/`  
-
-## Install
-
-```bash
-brew install wget python3  # only needed on mac
-pip3 install flask
-```
-
-## Common Tasks
+Simple static blog site.
 
 ### Adding a new Post
 
-1. upload post as markdown to https://docs.oddslingers.com
-2. click "Publish", and get the public url, like `https://docs.oddslingers.com/s/Skcz_hUhM`
-3. edit `content.json` to add metadata for new post, including public url
-4. rebuild site
-5. new post should appear on articles page
+1. Write your post in Markdown
+2. Make sure to add these meta tags at the very beginning
 
-### Adding a new Page
+```
+Title:          The most amazing blog in the world
+Description:    The most amazing description in the world
+Date:           2020-12-07
+Image:          https://josezy.github.io/static/test-post.jpg
+Tags:           tag1
+                tag2
+                tag3
+Length:         1 min read
+Author:         Jose Benitez
+Author_Image:   https://josezy.github.io/static/jose.jpg
+Author_Title:   JoseB
+Author_Handle:  @yojosebenitez
+Author_URL:     https://twitter.com/yojosebenitez
+```
 
-1. edit 'content.json' to add metadata for new page, including url
-2. add new template `html` file to `templates/`
-3. add link to new page in navbar: see `base.html` `<nav>` section
-4. rebuild site
-5. new page should appear in navbar
+3. Push post as markdown to `markdown/<post-slug>.md` (you can link it from hackmd.io or stackedit.io)
+4. Wait some minutes and reload site, post must automatically appear (pushing changes auto-updates post)
 
-
-### Editing existing Post/Page
-
-1. edit 'content.json' to reflect new metadata
-2. edit any relevant templates
-3. rebuild site
-4. new page should appear in navbar
-
-### Editing header/footer/other code
-
-1. edit `base.html`, `static/main.css`, `content.json` and any other relevant templates
-2. rebuild site
-3. new changes should appear on site
 
 ## Command Line Interface
 
-### Run the Server
+### Install
 
 ```bash
-./server
-# or with auto-reloading
-env FLASK_DEBUG=True ./server
+pip install -r requirements.txt
 ```
 
-### Get a list of the page & post urls without running the server
+### Update content.json
 
 ```bash
-./server --pages
-./server --posts
+./update-content
 ```
 
 ### Build the Static Site
@@ -69,21 +46,3 @@ env FLASK_DEBUG=True ./server
 ```bash
 ./build
 ```
-Static HTMML output will be produced in `output/`, and can be rsyned to a server using build script or manually with:
-
-`rsync -r output/ monadical.com:/opt/monadical.com/output`
-
-## Stack
-
-The static site generator is build using Flask + Jinja2 and wget to save the output as static html.
-
-## UI Test
-
-Right now I must test every change in the next resolutions:
-
-* IPad Landscape and Portrait
-* IPhone Portrait
-* Medium devices in Landscape and Portrait
-* Other small devices in Portrait
-
-For desktop we must test in every resolution from 1920px to 500px. Or at least 800px to 500px.

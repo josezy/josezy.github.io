@@ -1,0 +1,60 @@
+import json
+import markdown
+
+from pathlib import Path
+
+
+CONTENT_FILE = 'content.json'
+MARKDOWN_PATH = 'markdown/'
+
+META_KEYS = {'title', 'description', 'date', 'img', 'tags', 'length'}
+
+
+def load_content(fname=CONTENT_FILE):
+    """read the content.json file and load it as a dictionary"""
+    with open(fname, 'r') as f:
+        return json.load(f)
+
+def save_content(updated_content, fname=CONTENT_FILE):
+    """writes the content.json file and save it as json"""
+    with open(fname, 'w+') as f:
+        return json.dump(updated_content, f, indent=2)
+
+def posts_from_markdowns():
+    posts = {}
+    md = markdown.Markdown(extensions = ['meta'])
+
+    paths = Path(MARKDOWN_PATH).glob('**/*.md')
+    for path in paths:
+        post_slug = path.stem
+        template = f"posts/{post_slug}.html"
+        _ = md.convertFile(
+            input=str(path),
+            output=f"templates/{template}",
+        )
+
+        posts[post_slug] = {
+            "title": md.Meta.get("title", [""])[0],
+            "description": md.Meta.get("description", [""])[0],
+            "date": md.Meta.get("date", [""])[0],
+            "img": md.Meta.get("image", [""])[0],
+            "tags": md.Meta.get("tags", [""]),
+            "length": md.Meta.get("length", [""])[0],
+            "markdown": str(path),
+            "url": f"/{template}",
+            "template": template,
+            "author": {
+                "name": md.Meta.get("author", [""])[0],
+                "title": md.Meta.get("author_title", [""])[0],
+                "handle": md.Meta.get("author_handle", [""])[0],
+                "url": md.Meta.get("author_url", [""])[0],
+                "image": md.Meta.get("author_image", [""])[0]
+            }
+        }
+
+    return posts
+
+
+CONTENT = load_content(CONTENT_FILE)
+CONTENT['POSTS'] = posts_from_markdowns()
+save_content(CONTENT)

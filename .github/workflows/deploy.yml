@@ -20,13 +20,14 @@ jobs:
         with:
           python-version: 3.7
           architecture: x64
-      - name: Update content.json
-        run: |
-          pip3 install flask
-          echo "Here I update content.json from md files metadata"
-      - name: Build site
+      - name: Install dependencies
         run: |
           pip3 install flask markdown pymdown-extensions
+      - name: Update content.json
+        run: |
+          ./update-content
+      - name: Build site
+        run: |
           ./build
       - name: Commit files
         run: |
